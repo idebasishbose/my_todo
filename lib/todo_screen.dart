@@ -7,10 +7,10 @@ import 'main.dart';
 class TodoScreen extends StatelessWidget {
   final Todo todo;
   final bool isNew;
-  final TextEditingController txtName = TextEditingController();
-  final TextEditingController txtDescription = TextEditingController();
-  final TextEditingController txtCompleteBy = TextEditingController();
-  final TextEditingController txtPriority = TextEditingController();
+  final txtName = TextEditingController();
+  final txtDescription = TextEditingController();
+  final txtCompleteBy = TextEditingController();
+  final txtPriority = TextEditingController();
 
   final TodoBloc bloc;
 
@@ -35,7 +35,9 @@ class TodoScreen extends StatelessWidget {
               child: TextField(
                 controller: txtName,
                 decoration: InputDecoration(
-                    border: const OutlineInputBorder(), hintText: 'Name'),
+                  border: const OutlineInputBorder(),
+                  hintText: 'Name',
+                ),
               ),
             ),
             Padding(

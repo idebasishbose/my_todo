@@ -18,6 +18,10 @@ class Todo {
 
   static Todo fromMap(Map<String, dynamic> map) {
     return Todo(
-        map['name'], map['description'], map['completeBy'], map['priority']);
+      map['name'],
+      map['description'],
+      map['completeBy'],
+      map['priority'],
+    );
   }
 }

@@ -1,0 +1,1 @@
+const todoDetails = 'Todo Details';
