@@ -1,6 +1,6 @@
-# todo_sembast
+# my_todo
 
-A new Flutter TODO application with BLoC and Sembast
+A new Flutter TODO application with BLoC and sembast
 
 ## Getting Started
 
