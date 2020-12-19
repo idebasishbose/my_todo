@@ -7,10 +7,10 @@ import 'main.dart';
 class TodoScreen extends StatelessWidget {
   final Todo todo;
   final bool isNew;
-  final txtName = TextEditingController();
-  final txtDescription = TextEditingController();
-  final txtCompleteBy = TextEditingController();
-  final txtPriority = TextEditingController();
+  final TextEditingController txtName = TextEditingController();
+  final TextEditingController txtDescription = TextEditingController();
+  final TextEditingController txtCompleteBy = TextEditingController();
+  final TextEditingController txtPriority = TextEditingController();
 
   final TodoBloc bloc;
 
