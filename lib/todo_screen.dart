@@ -18,46 +18,52 @@ class TodoScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double padding = 20.0;
+    final double padding = 10.0;
     txtName.text = todo.name;
     txtDescription.text = todo.description;
     txtCompleteBy.text = todo.completeBy;
     txtPriority.text = todo.priority.toString();
     return Scaffold(
-        appBar: AppBar(
-          title: Text('Todo Details'),
-        ),
-        body: SingleChildScrollView(
-            child: Column(
+      appBar: AppBar(
+        title: Text('Todo Details'),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
           children: <Widget>[
             Padding(
               padding: EdgeInsets.all(padding),
               child: TextField(
+                textCapitalization: TextCapitalization.sentences,
                 controller: txtName,
                 decoration: InputDecoration(
                   border: const OutlineInputBorder(),
-                  hintText: 'Name',
+                  hintText: 'Headline',
                 ),
               ),
             ),
             Padding(
                 padding: EdgeInsets.all(padding),
                 child: TextField(
+                  textCapitalization: TextCapitalization.sentences,
                   controller: txtDescription,
+                  keyboardType: TextInputType.multiline,
+                  maxLines: null,
+                  maxLength: 500, //setting maximum length of the textfield
+                  maxLengthEnforced:
+                      true, //prevent the user from further typing  when maxLength is reached
                   decoration: InputDecoration(
                     border: const OutlineInputBorder(),
                     hintText: 'Description',
-                    helperText: 'Description',
+                    counterText: '',
                   ),
                 )),
             Padding(
                 padding: EdgeInsets.all(padding),
                 child: TextField(
                   controller: txtCompleteBy,
-                  keyboardType: TextInputType.datetime,
+                  keyboardType: TextInputType.name,
                   decoration: InputDecoration(
-                      border: const OutlineInputBorder(),
-                      hintText: 'Complete by'),
+                      border: OutlineInputBorder(), hintText: 'Completed by'),
                 )),
             Padding(
                 padding: EdgeInsets.all(padding),
@@ -70,19 +76,27 @@ class TodoScreen extends StatelessWidget {
                   ),
                 )),
             Padding(
-                padding: EdgeInsets.all(padding),
-                child: MaterialButton(
-                  child: Text('Save'),
-                  onPressed: () {
+              padding: EdgeInsets.all(padding),
+              child: MaterialButton(
+                child: Text('Save'),
+                textColor: Colors.white,
+                color: Colors.blue,
+                onPressed: () {
+                  if (txtName.text.isNotEmpty &&
+                      txtDescription.text.isNotEmpty) {
                     save().then((_) => Navigator.pushAndRemoveUntil(
                           context,
                           MaterialPageRoute(builder: (context) => HomePage()),
                           (Route<dynamic> route) => false,
                         ));
-                  },
-                )),
+                  }
+                },
+              ),
+            ),
           ],
-        )));
+        ),
+      ),
+    );
   }
 
   Future save() async {
