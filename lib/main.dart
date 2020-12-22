@@ -6,6 +6,8 @@ import 'todo_screen.dart';
 
 void main() => runApp(TodoApp());
 
+String whatHappened;
+
 class TodoApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -16,6 +18,15 @@ class TodoApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: HomePage(),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        /* dark theme settings */
+      ),
+      themeMode: ThemeMode.dark,
+      /* ThemeMode.system to follow system theme,
+         ThemeMode.light for light theme,
+         ThemeMode.dark for dark theme
+      */
     );
   }
 }
@@ -42,7 +53,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    String whatHappened;
     Todo todo = Todo('', '', '', 0);
     todos = todoBloc.todoList;
     return Scaffold(
