@@ -4,6 +4,8 @@ import 'screens/home_screen.dart';
 
 void main() => runApp(TodoApp());
 
+String whatHappened;
+
 class TodoApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

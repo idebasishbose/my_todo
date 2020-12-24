@@ -2,6 +2,10 @@
 
 A new Flutter TODO application with BLoC and sembast
 
+## Libraries used
+- [sembast: ^2.4.8+1](https://pub.dev/packages/sembast)
+- [path_provider: ^1.6.24](https://pub.dev/packages/path_provider)
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
